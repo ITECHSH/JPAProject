@@ -1,0 +1,47 @@
+package ru.neoflex.springbootapplication;
+
+import java.io.Serializable;
+import java.util.Optional;
+
+public class EmployeeDto implements Serializable {
+    private Long id;
+    private String name;
+    private String surname;
+
+    public EmployeeDto(Long id, String name, String surname) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public EmployeeDto(Optional<Employee> opt){
+        Employee entity = opt.get();
+        this.id=entity.id;
+        this.name = entity.name;
+        this.surname = entity.surname;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+}
